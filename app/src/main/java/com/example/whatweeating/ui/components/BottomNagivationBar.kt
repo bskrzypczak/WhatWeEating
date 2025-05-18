@@ -12,51 +12,45 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.navigation.NavHostController
 import com.example.whatweeating.data.BottomNavigation
-
-val items = listOf(
-    BottomNavigation(
-        title = "Strona główna",
-        icon = Icons.Rounded.Home
-    ),
-
-    BottomNavigation(
-        title = "Ulubione",
-        icon = Icons.Rounded.Favorite
-    ),
-
-    BottomNavigation(
-        title = "...",
-        icon = Icons.Rounded.Kitchen
-    ),
-
-    BottomNavigation(
-        title = "Społeczność",
-        icon = Icons.Rounded.People
-    ),
-
-    BottomNavigation(
-        title = "Profil",
-        icon = Icons.Rounded.Person
-    ),
-)
+import com.example.whatweeating.ui.navigation.Screen
 
 @Composable
-fun BottomNavigationBar(){
+fun BottomNavigationBar(
+    navController: NavHostController,
+    currentRoute: String
+) {
+    val items = listOf(
+        Screen.Home,
+        Screen.Favorites,
+        Screen.Cooking,
+        Screen.Community,
+        Screen.Profile
+    )
+
     NavigationBar {
-        Row(){
-            items.forEachIndexed { index, item ->
-                NavigationBarItem(
-                    selected = index == 0,
-                    onClick = {},
-                    icon = {
-                        Icon(
-                            imageVector = item.icon,
-                            contentDescription = item.title
-                        )
+        items.forEach { screen ->
+            NavigationBarItem(
+                selected = currentRoute == screen.route,
+                onClick = {
+                    navController.navigate(screen.route) {
+                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                        launchSingleTop = true
+                        restoreState = true
                     }
-                )
-            }
+                },
+                icon = {
+                    Icon(imageVector = when (screen) {
+                        Screen.Home -> Icons.Rounded.Home
+                        Screen.Favorites -> Icons.Rounded.Favorite
+                        Screen.Cooking -> Icons.Rounded.Kitchen
+                        Screen.Community -> Icons.Rounded.People
+                        Screen.Profile -> Icons.Rounded.Person
+                    }, contentDescription = screen.route)
+                },
+                label = { Text(screen.route.capitalize()) }
+            )
         }
     }
 }

@@ -5,17 +5,13 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.whatweeating.ui.components.GreetingHeader
-import com.example.whatweeating.ui.components.SearchBar
 import com.example.whatweeating.ui.components.BottomNavigationBar
-import com.example.whatweeating.ui.components.CategoriesPanel
 
 
 @Composable
-fun HomeScreen() {
+fun ProfileScreen() {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route ?: ""
@@ -34,9 +30,7 @@ fun HomeScreen() {
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            GreetingHeader(name = "Bartek")
-            SearchBar()
-            CategoriesPanel()
+            Text(text = "Profile Screen")
         }
     }
 }
