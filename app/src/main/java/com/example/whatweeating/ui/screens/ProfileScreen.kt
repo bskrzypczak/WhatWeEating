@@ -10,9 +10,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
 import com.example.whatweeating.ui.components.BottomNavigationBar
-import com.example.whatweeating.ui.components.GreetingHeader
+import com.example.whatweeating.ui.components.ProfileInfo
+import com.example.whatweeating.R
 
 
 @Composable
@@ -20,6 +22,7 @@ fun ProfileScreen(navController: NavController){
     var text by remember {
         mutableStateOf("")
     }
+    val image = painterResource(id = R.drawable.kot)
     var currentRoute = "profile_screen"
     Scaffold(
         bottomBar = {
@@ -36,7 +39,7 @@ fun ProfileScreen(navController: NavController){
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            GreetingHeader(name = "Bartek")
+            ProfileInfo(image, "email", "imie")
         }
     }
 }
