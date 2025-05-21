@@ -4,17 +4,20 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavController
 import com.example.whatweeating.ui.components.BottomNavigationBar
 
 
 @Composable
-fun CookingScreen() {
-    val navController = rememberNavController()
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route ?: ""
+fun CookingScreen(navController: NavController){
+    var text by remember {
+        mutableStateOf("")
+    }
+    var currentRoute = "cooking_screen"
     Scaffold(
         bottomBar = {
             BottomNavigationBar(
@@ -30,7 +33,7 @@ fun CookingScreen() {
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            Text(text = "Cooking Screen")
+            Text(text = "Gotowanie")
         }
     }
 }

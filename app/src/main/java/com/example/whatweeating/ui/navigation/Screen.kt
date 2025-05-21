@@ -1,9 +1,9 @@
 package com.example.whatweeating.ui.navigation
 
 sealed class Screen(val route: String) {
-    object Home : Screen("home")
-    object Favorites : Screen("favorites")
-    object Cooking : Screen("cooking")
-    object Community : Screen("community")
-    object Profile : Screen("profile")
+    object HomeScreen : Screen("home_screen")
+    object FavoritesScreen : Screen("favorites_screen")
+    object CookingScreen : Screen("cooking_screen")
+    object CommunityScreen : Screen("community_screen")
+    object ProfileScreen : Screen("profile_screen")
 }

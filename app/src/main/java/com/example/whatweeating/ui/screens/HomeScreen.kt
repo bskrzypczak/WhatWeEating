@@ -1,24 +1,28 @@
 package com.example.whatweeating.ui.screens
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
-import com.example.whatweeating.ui.components.GreetingHeader
-import com.example.whatweeating.ui.components.SearchBar
 import com.example.whatweeating.ui.components.BottomNavigationBar
 import com.example.whatweeating.ui.components.CategoriesPanel
+import com.example.whatweeating.ui.components.GreetingHeader
+import com.example.whatweeating.ui.components.SearchBar
 
 
 @Composable
-fun HomeScreen() {
-    val navController = rememberNavController()
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route ?: ""
+fun HomeScreen(navController: NavController){
+    var text by remember {
+        mutableStateOf("")
+    }
+    var currentRoute = "home_screen"
     Scaffold(
         bottomBar = {
             BottomNavigationBar(

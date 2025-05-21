@@ -1,20 +1,26 @@
 package com.example.whatweeating.ui.screens
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
+import androidx.navigation.NavController
 import com.example.whatweeating.ui.components.BottomNavigationBar
+import com.example.whatweeating.ui.components.GreetingHeader
 
 
 @Composable
-fun ProfileScreen() {
-    val navController = rememberNavController()
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route ?: ""
+fun ProfileScreen(navController: NavController){
+    var text by remember {
+        mutableStateOf("")
+    }
+    var currentRoute = "profile_screen"
     Scaffold(
         bottomBar = {
             BottomNavigationBar(
@@ -30,7 +36,7 @@ fun ProfileScreen() {
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            Text(text = "Profile Screen")
+            GreetingHeader(name = "Bartek")
         }
     }
 }
