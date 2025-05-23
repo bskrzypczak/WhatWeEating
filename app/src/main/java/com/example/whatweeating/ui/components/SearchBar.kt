@@ -1,54 +1,41 @@
 package com.example.whatweeating.ui.components
 
-import android.util.Log
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Search
-import androidx.compose.material.icons.outlined.Tune
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SearchBar(
-    modifier: Modifier = Modifier,
-    onFilterClick: () -> Unit = { Log.d("App", "Filtry") }
-) {
-    var searchQuery by remember { mutableStateOf("") }
+fun SearchBar() {
+    var searchText by remember { mutableStateOf("") }
 
-    TextField(
-        value = searchQuery,
-        onValueChange = { searchQuery = it },
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 20.dp, vertical = 16.dp),
-        placeholder = { Text("Szukaj...") },
-        shape = RoundedCornerShape(50), // pełne zaokrąglenie
-        maxLines = 1,
-        singleLine = true,
+    OutlinedTextField(
+        value = searchText,
+        onValueChange = { searchText = it },
+        placeholder = { Text("Szukaj") },
         leadingIcon = {
             Icon(
-                imageVector = Icons.Outlined.Search,
-                contentDescription = "Szukaj"
+                imageVector = Icons.Default.Search,
+                contentDescription = "Szukaj inspiracji"
             )
         },
-        trailingIcon = {
-            IconButton(onClick = onFilterClick) {
-                Icon(
-                    imageVector = Icons.Outlined.Tune, // Ikona filtrów
-                    contentDescription = "Filtrowanie"
-                )
-            }
-        }
+        singleLine = true,
+        shape = RoundedCornerShape(50),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(12.dp),
+        colors = OutlinedTextFieldDefaults.colors(
+            focusedBorderColor = Color.Transparent,
+            unfocusedBorderColor = Color.Transparent,
+            disabledBorderColor = Color.Transparent,
+            cursorColor = MaterialTheme.colorScheme.primary,
+            focusedContainerColor = Color(0xFFF0F0F0),
+            unfocusedContainerColor = Color(0xFFF0F0F0),
+        )
     )
 }

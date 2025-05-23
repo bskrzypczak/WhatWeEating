@@ -43,7 +43,7 @@ fun BottomNavigationBar(
                         Screen.ProfileScreen -> Icons.Rounded.Person
                     }, contentDescription = screen.route)
                 },
-                label = { Text(screen.route.capitalize()) }
+                label = { Text(screen.label.capitalize()) }
             )
         }
     }

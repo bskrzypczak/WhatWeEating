@@ -1,8 +1,8 @@
 package com.example.whatweeating.data
 
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.painter.Painter
 
 data class CategoryIcon(
     val title: String,
-    val icon: ImageVector
+    val image: Painter
 )

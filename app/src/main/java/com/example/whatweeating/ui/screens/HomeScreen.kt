@@ -5,23 +5,18 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.example.whatweeating.ui.components.BottomNavigationBar
-import com.example.whatweeating.ui.components.CategoriesPanel
+import com.example.whatweeating.ui.components.CategoriesList
+import com.example.whatweeating.ui.components.FiltersList
 import com.example.whatweeating.ui.components.GreetingHeader
 import com.example.whatweeating.ui.components.SearchBar
+import com.example.whatweeating.ui.components.SettingsList
 
 
 @Composable
 fun HomeScreen(navController: NavController){
-    var text by remember {
-        mutableStateOf("")
-    }
     var currentRoute = "home_screen"
     Scaffold(
         bottomBar = {
@@ -40,7 +35,8 @@ fun HomeScreen(navController: NavController){
         ) {
             GreetingHeader(name = "Bartek")
             SearchBar()
-            CategoriesPanel()
+            CategoriesList()
+            FiltersList()
         }
     }
 }

@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import com.example.whatweeating.ui.components.BottomNavigationBar
 import com.example.whatweeating.ui.components.ProfileInfo
 import com.example.whatweeating.R
+import com.example.whatweeating.ui.components.SettingsList
 
 
 @Composable
@@ -40,6 +41,8 @@ fun ProfileScreen(navController: NavController){
                 .fillMaxSize()
         ) {
             ProfileInfo(image, "email", "imie")
+            SettingsList()
+
         }
     }
 }
