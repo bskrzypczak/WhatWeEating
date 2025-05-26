@@ -25,7 +25,7 @@ fun GreetingHeader(name: String, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(top = 15.dp, start = 15.dp),
+            .padding(top = 6.dp, start = 15.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
 
@@ -49,7 +49,7 @@ fun GreetingHeader(name: String, modifier: Modifier = Modifier) {
                 }
         )
 
-        Spacer(modifier = Modifier.width(10.dp))
+        Spacer(modifier = Modifier.width(6.dp))
 
         Icon(
             imageVector = Icons.Outlined.ShoppingCart,

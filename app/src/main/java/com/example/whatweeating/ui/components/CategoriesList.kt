@@ -61,8 +61,8 @@ fun CategoriesList(){
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(12.dp)
+            .padding(horizontal = 20.dp),
+        horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(categories) { category ->
             val isSelected = selectedCategories.contains(category.title)
@@ -93,7 +93,7 @@ fun CategoriesList(){
                     )
                 }
 
-                Spacer(modifier = Modifier.height(4.dp))
+                Spacer(modifier = Modifier.height(2.dp))
 
                 Text(
                     text = category.title,

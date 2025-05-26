@@ -39,7 +39,7 @@ fun FiltersList() {
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 8.dp),
+            .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         items(filters) { filter ->
@@ -113,7 +113,7 @@ fun FilterChip(
                 modifier = Modifier.size(18.dp),
                 tint = contentColor
             )
-            Spacer(modifier = Modifier.width(6.dp))
+            Spacer(modifier = Modifier.width(4.dp))
             Text(
                 text = label,
                 fontSize = 14.sp,

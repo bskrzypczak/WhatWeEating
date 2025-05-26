@@ -28,7 +28,7 @@ fun SearchBar() {
         shape = RoundedCornerShape(50),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(12.dp),
+            .padding(start = 12.dp, end = 12.dp, top = 4.dp),
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color.Transparent,
             unfocusedBorderColor = Color.Transparent,
