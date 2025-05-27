@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.whatweeating.ui.navigation.Navigation
+import com.example.whatweeating.ui.theme.WhatWeEatingTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -22,8 +23,11 @@ class MainActivity : ComponentActivity() {
             delay(2000L)
             splashScreen.setKeepOnScreenCondition { false }
         }
+
         setContent {
-            Navigation()
+            WhatWeEatingTheme {
+                Navigation()
+            }
         }
     }
 }

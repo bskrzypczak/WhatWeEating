@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,7 +35,8 @@ fun GreetingHeader(name: String, modifier: Modifier = Modifier) {
                 .padding(top = 3.dp),
             text = "Cześć, $name!",
             fontSize = 18.sp,
-            fontWeight = FontWeight.SemiBold
+            fontWeight = FontWeight.SemiBold,
+            color = MaterialTheme.colorScheme.primary
         )
 
         Spacer(modifier = Modifier.weight(1f))
@@ -46,7 +48,9 @@ fun GreetingHeader(name: String, modifier: Modifier = Modifier) {
                 .size(21.dp)
                 .clickable {
                     Log.d("App", "Przejdz do powiadomien")
-                }
+                },
+            tint = MaterialTheme.colorScheme.primary
+
         )
 
         Spacer(modifier = Modifier.width(6.dp))
@@ -58,7 +62,9 @@ fun GreetingHeader(name: String, modifier: Modifier = Modifier) {
                 .size(21.dp)
                 .clickable {
                     Log.d("App", "Przejdz do listy zakupow")
-                }
+                },
+            tint = MaterialTheme.colorScheme.primary
+
         )
 
         Spacer(modifier = Modifier.width(15.dp))

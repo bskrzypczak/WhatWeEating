@@ -6,6 +6,8 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.RestaurantMenu
+import androidx.compose.material.icons.outlined.Spa
 import androidx.compose.material.icons.outlined.Star
 import androidx.compose.material.icons.outlined.Timer
 import androidx.compose.material3.*
@@ -30,6 +32,16 @@ fun FiltersList() {
             name = "Czas",
             icon = Icons.Outlined.Timer,
             options = listOf("Do 15 min", "15–30 min", "30+ min")
+        ),
+        FoodFilter(
+            name = "Posiłek",
+            icon = Icons.Outlined.RestaurantMenu,
+            options = listOf("Śniadanie", "Obiad", "Kolacja")
+        ),
+        FoodFilter(
+            name = "Dieta",
+            icon = Icons.Outlined.Spa,
+            options = listOf("Wegańska", "Wegetariańska", "Bezglutenowa")
         )
     )
 
@@ -56,7 +68,6 @@ fun FiltersList() {
                         when {
                             expandedFilter == filter.name -> expandedFilter = null
                             isSelected -> {
-                                // resetuj zaznaczenie jeśli kliknięto wybrany filtr
                                 selectedOptions = selectedOptions - filter.name
                                 expandedFilter = null
                             }
@@ -91,7 +102,7 @@ fun FilterChip(
     isSelected: Boolean,
     onClick: () -> Unit
 ) {
-    val backgroundColor = if (isSelected) Color.Black else Color(0xFFF0F0F0)
+    val backgroundColor = if (isSelected) Color.Black else Color(0xFFEEEAEA)
     val contentColor = if (isSelected) Color.White else Color.Black
 
     Surface(

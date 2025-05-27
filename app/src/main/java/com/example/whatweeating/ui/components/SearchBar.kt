@@ -21,7 +21,8 @@ fun SearchBar() {
         leadingIcon = {
             Icon(
                 imageVector = Icons.Default.Search,
-                contentDescription = "Szukaj inspiracji"
+                contentDescription = "Szukaj",
+                tint = MaterialTheme.colorScheme.primary
             )
         },
         singleLine = true,
@@ -35,7 +36,7 @@ fun SearchBar() {
             disabledBorderColor = Color.Transparent,
             cursorColor = MaterialTheme.colorScheme.primary,
             focusedContainerColor = Color(0xFFF0F0F0),
-            unfocusedContainerColor = Color(0xFFF0F0F0),
+            unfocusedContainerColor = Color(0xFFEEEAEA),
         )
     )
 }

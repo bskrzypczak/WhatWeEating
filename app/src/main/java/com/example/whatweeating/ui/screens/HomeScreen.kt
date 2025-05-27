@@ -10,6 +10,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.whatweeating.ui.components.BottomNavigationBar
 import com.example.whatweeating.ui.components.CategoriesList
@@ -18,10 +19,11 @@ import com.example.whatweeating.ui.components.GreetingHeader
 import com.example.whatweeating.ui.components.PopularRecipes
 import com.example.whatweeating.ui.components.SearchBar
 import com.example.whatweeating.ui.components.WorldCuisines
+import com.example.whatweeating.ui.viewmodels.SharedViewModel
 
 
 @Composable
-fun HomeScreen(navController: NavController){
+fun HomeScreen(navController: NavController, viewModel: SharedViewModel){
     var currentRoute = "home_screen"
     Scaffold(
         bottomBar = {
@@ -44,7 +46,7 @@ fun HomeScreen(navController: NavController){
             item { SearchBar() }
             item { CategoriesList() }
             item { FiltersList() }
-            item { PopularRecipes() }
+            item { PopularRecipes(navController, viewModel) }
             item { WorldCuisines() }
         }
     }

@@ -96,6 +96,7 @@ fun CategoriesList(){
                 Spacer(modifier = Modifier.height(2.dp))
 
                 Text(
+                    color = MaterialTheme.colorScheme.primary,
                     text = category.title,
                     fontSize = 14.sp,
                     fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
