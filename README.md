@@ -20,14 +20,17 @@ Wystarczy zaznaczyć dostępne produkty, a aplikacja automatycznie zaproponuje d
 ---
 
 ## 🖼️ Zrzuty ekranu
-
+Ekran główny aplikacji:
 <p align="center">
-  <img src="screenshots/home_screen.png" alt="Ekran główny" width="600"/>
+  <img src="screenshots/home_screen.png" alt="Ekran główny" width="300"/>
 </p>
 
+Widok z wybranym przepisem
 <p align="center">
-  <img src="screenshots/recipe_screen.png" alt="Strona przepisu" width="600"/>
+  <img src="screenshots/recipe_screen.png" alt="Strona przepisu" width="300"/>
+  <img src="screenshots/recipe_screen2.png" alt="Strona przepisu" width="300"/>
 </p>
+
 
 ---
 
