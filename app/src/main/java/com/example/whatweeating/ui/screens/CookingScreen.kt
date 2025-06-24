@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavController
 import com.example.whatweeating.ui.components.BottomNavigationBar
 
@@ -33,7 +34,8 @@ fun CookingScreen(navController: NavController){
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            Text(text = "Gotowanie")
+            Text(text = "Pracujemy nad tym",
+                fontWeight = FontWeight.Bold)
         }
     }
 }

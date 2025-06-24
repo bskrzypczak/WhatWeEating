@@ -36,7 +36,6 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.NavController
 import com.example.whatweeating.data.Ingredient
 import com.example.whatweeating.ui.components.BottomNavigationBar
-import com.example.whatweeating.ui.theme.AppPrimary
 import com.example.whatweeating.ui.viewmodels.SharedViewModel
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener

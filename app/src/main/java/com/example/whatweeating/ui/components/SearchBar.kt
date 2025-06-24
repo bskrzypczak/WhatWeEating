@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun SearchBar() {
+fun SearchBar(onSearch: (String) -> Unit) {
     var searchText by remember { mutableStateOf("") }
 
     OutlinedTextField(
@@ -19,11 +19,14 @@ fun SearchBar() {
         onValueChange = { searchText = it },
         placeholder = { Text("Szukaj") },
         leadingIcon = {
-            Icon(
-                imageVector = Icons.Default.Search,
-                contentDescription = "Szukaj",
-                tint = MaterialTheme.colorScheme.primary
-            )
+            IconButton(onClick = {
+                if (searchText.isNotBlank()) onSearch(searchText)
+            }) {
+                Icon(
+                    imageVector = Icons.Default.Search,
+                    contentDescription = "Szukaj"
+                )
+            }
         },
         singleLine = true,
         shape = RoundedCornerShape(50),

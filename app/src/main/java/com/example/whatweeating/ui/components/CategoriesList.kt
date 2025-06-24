@@ -21,42 +21,20 @@ import com.example.whatweeating.data.CategoryIcon
 import com.example.whatweeating.R
 
 @Composable
-fun CategoriesList(){
+fun CategoriesList(
+    selectedCategory: String?,
+    onCategorySelected: (String?) -> Unit
+) {
     val categories = listOf(
-        CategoryIcon(
-            title = "Pizza",
-            image = painterResource(id = R.drawable.pizza)
-        ),
-        CategoryIcon(
-            title = "Azjatyckie",
-            image = painterResource(id = R.drawable.azjatyckie)
-        ),
-        CategoryIcon(
-            title = "Burgery",
-            image = painterResource(id = R.drawable.burger)
-        ),
-        CategoryIcon(
-            title = "Makarony",
-            image = painterResource(id = R.drawable.pasta)
-        ),
-        CategoryIcon(
-            title = "Meksykańskie",
-            image = painterResource(id = R.drawable.mexican)
-        ),
-        CategoryIcon(
-            title = "Wegańskie",
-            image = painterResource(id = R.drawable.vegan)
-        ),
-        CategoryIcon(
-            title = "Bezglutenowe",
-            image = painterResource(id = R.drawable.glutenfree)
-        ),
-        CategoryIcon(
-            title = "Desery",
-            image = painterResource(id = R.drawable.desery)
-        )
+        CategoryIcon("Italian", painterResource(id = R.drawable.pizza)),
+        CategoryIcon("Azjatyckie", painterResource(id = R.drawable.azjatyckie)),
+        CategoryIcon("Burgery", painterResource(id = R.drawable.burger)),
+        CategoryIcon("Makarony", painterResource(id = R.drawable.pasta)),
+        CategoryIcon("Meksykańskie", painterResource(id = R.drawable.mexican)),
+        CategoryIcon("Wegańskie", painterResource(id = R.drawable.vegan)),
+        CategoryIcon("Bezglutenowe", painterResource(id = R.drawable.glutenfree)),
+        CategoryIcon("Desery", painterResource(id = R.drawable.desery))
     )
-    var selectedCategories by remember { mutableStateOf(setOf<String>()) }
 
     LazyRow(
         modifier = Modifier
@@ -65,17 +43,14 @@ fun CategoriesList(){
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(categories) { category ->
-            val isSelected = selectedCategories.contains(category.title)
+            val isSelected = selectedCategory == category.title
 
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier
-                    .clickable {
-                        selectedCategories = if (isSelected)
-                            selectedCategories - category.title
-                        else
-                            selectedCategories + category.title
-                    }
+                modifier = Modifier.clickable {
+                    val newSelection = if (isSelected) null else category.title
+                    onCategorySelected(newSelection)
+                }
             ) {
                 Box(
                     modifier = Modifier

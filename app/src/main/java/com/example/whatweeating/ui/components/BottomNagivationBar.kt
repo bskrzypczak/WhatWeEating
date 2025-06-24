@@ -55,6 +55,10 @@ fun BottomNavigationBar(
                             Screen.CommunityScreen -> Icons.Rounded.People
                             Screen.ProfileScreen -> Icons.Rounded.Person
                             Screen.RecipeScreen -> Icons.Rounded.Abc
+                            Screen.LogInScreen -> Icons.Rounded.Abc
+                            Screen.SignUpScreen -> Icons.Rounded.Abc
+                            Screen.ResultsScreen -> Icons.Rounded.Abc
+                            Screen.TestScreen -> Icons.Rounded.Abc
                         },
                         contentDescription = screen.route,
                         modifier = Modifier.size(26.dp),
